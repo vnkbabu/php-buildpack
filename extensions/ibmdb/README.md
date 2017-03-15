@@ -1,5 +1,5 @@
     ✓ This is a functional buildpack, and ready-to-use! Use:
-    cf push "Your App" -b https://github.com/fishfin/php-buildpack
+    cf push "Your App" -b https://github.com/ibmdb/php-buildpack
     ----
     And you might just find it useful, that even PDO is supported now!
 
