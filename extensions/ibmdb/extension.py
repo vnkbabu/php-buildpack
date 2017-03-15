@@ -139,6 +139,12 @@ class IBMDBInstaller(ExtensionHelper):
         with open(self._phpBuildIniFpath, 'wt') as phpIni:
             for line in lines:
                 phpIni.write(line)
+       self._runCmd(self._compilationEnv, self._ctx['BUILD_DIR'],
+                 ['ldd /tmp/app/php/lib/php/extensions/no-debug-non-zts-20131226/pdo_ibm.so'])  
+    
+      self._runCmd(self._compilationEnv, self._ctx['BUILD_DIR'],
+                 ['echo $LD_LIBRARY_PATH'])  
+                
 
     def install_clidriver(self):
         self._logMsg('-- Installing IBM DB CLI Drivers -----------------')
