@@ -47,7 +47,7 @@ class IBMDBInstaller(ExtensionHelper):
         pkgdownloads['DOWNLOAD_DIR'] = os.path.join('{COMPILATION_DIR}', '.downloads')        
         pkgdownloads['IBMDBCLIDRIVER_INSTALL_DIR'] = os.path.join(self._ctx['BUILD_DIR'], 'ibmdb_clidriver')
         pkgdownloads['PHPSOURCE_INSTALL_DIR'] = os.path.join('{COMPILATION_DIR}', 'php')
-        pkgdownloads['IBM_DB2_DLDIR'] = os.path.join('{PHPSOURCE_INSTALL_DIR}', 'ext', 'ibm_db2')
+        pkgdownloads['IBM_DB2_DLDIR'] = os.path.join('{PHPSOURCE_INSTALL_DIR}', 'ext', 'ibm_db')
         pkgdownloads['PDO_IBM_DLDIR'] = os.path.join('{PHPSOURCE_INSTALL_DIR}', 'ext', 'pdo_ibm')
         return utils.FormattedDict(pkgdownloads)
 
@@ -141,7 +141,7 @@ class IBMDBInstaller(ExtensionHelper):
 
     def install_clidriver(self):
         self._logMsg('-- Installing IBM DB CLI Drivers -----------------')
-        for clidriverpart in ['ibmdbclidriver1', 'ibmdbclidriver2']:
+        for clidriverpart in ['ibmdbclidriver1']:
             if self._ctx[clidriverpart.upper() + '_DLFILE'] != '':
                 self._install_direct(
                     self._ctx[clidriverpart.upper() + '_DLURL'],
