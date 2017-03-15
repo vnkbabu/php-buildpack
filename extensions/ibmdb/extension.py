@@ -49,6 +49,7 @@ class IBMDBInstaller(ExtensionHelper):
         pkgdownloads['PHPSOURCE_INSTALL_DIR'] = os.path.join('{COMPILATION_DIR}', 'php')
         pkgdownloads['IBM_DB2_DLDIR'] = os.path.join('{PHPSOURCE_INSTALL_DIR}', 'ext', 'ibm_db')
         pkgdownloads['PDO_IBM_DLDIR'] = os.path.join('{PHPSOURCE_INSTALL_DIR}', 'ext', 'pdo_ibm')
+        pkgdownloads['LIBRARYPATH'] = os.path.join(self._ctx['BUILD_DIR'], 'ibmdb_clidriver/lib')
         return utils.FormattedDict(pkgdownloads)
 
     def _should_configure(self):
@@ -151,6 +152,7 @@ class IBMDBInstaller(ExtensionHelper):
                     True)
 
         self._compilationEnv['IBM_DB_HOME'] = self._ctx['IBMDBCLIDRIVER_INSTALL_DIR']
+        self._compilationEnv['LD_LIBRARY_PATH'] = self._ctx['LIBRARYPATH']
         self._logMsg('-- Installed IBM DB CLI Drivers ------------------')
 
     def download_extensions(self):
