@@ -1,6 +1,7 @@
 import logging
 import os
 import StringIO
+import subprocess
 from urlparse import urlparse
 from build_pack_utils import stream_output
 from build_pack_utils import utils
