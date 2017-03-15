@@ -139,10 +139,10 @@ class IBMDBInstaller(ExtensionHelper):
         with open(self._phpBuildIniFpath, 'wt') as phpIni:
             for line in lines:
                 phpIni.write(line)
-       self._runCmd(self._compilationEnv, self._ctx['BUILD_DIR'],
+        self._runCmd(self._compilationEnv, self._ctx['BUILD_DIR'],
                  ['ldd /tmp/app/php/lib/php/extensions/no-debug-non-zts-20131226/pdo_ibm.so'])  
     
-      self._runCmd(self._compilationEnv, self._ctx['BUILD_DIR'],
+        self._runCmd(self._compilationEnv, self._ctx['BUILD_DIR'],
                  ['echo $LD_LIBRARY_PATH'])  
                 
 
@@ -175,7 +175,7 @@ class IBMDBInstaller(ExtensionHelper):
                  ['cp', os.path.join(ibmdbExtnDownloadDir,  self._zendModuleApiNo, ibmdbExtn.lower() + '.so'),
                   self._phpExtnDpath])
             self._logMsg ('Installed extension ' + ibmdbExtn)
-        self._logMsg('-- Downloaded IBM DB Extensions ------------------')
+            self._logMsg('-- Downloaded IBM DB Extensions ------------------')
 
     def cleanup(self):
         self._logMsg('-- Some House-keeping ----------------------------')
